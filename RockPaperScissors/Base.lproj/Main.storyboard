@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Choose One Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChooseOneController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,111 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-CU-mV5">
+                                <rect key="frame" x="263" y="267" width="75" height="65"/>
+                                <state key="normal" image="rock"/>
+                                <connections>
+                                    <segue destination="1DG-tg-H9B" kind="presentation" identifier="rockSegue" id="gqP-n5-WfU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqo-Ym-rh0">
+                                <rect key="frame" x="408" y="267" width="75" height="65"/>
+                                <state key="normal" image="scissors"/>
+                                <connections>
+                                    <action selector="scisscors" destination="BYZ-38-t0r" eventType="touchUpInside" id="SCo-5E-aC7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-0Q-ZMS">
+                                <rect key="frame" x="118" y="267" width="75" height="65"/>
+                                <state key="normal" image="paper"/>
+                                <connections>
+                                    <action selector="paper" destination="BYZ-38-t0r" eventType="touchUpInside" id="f95-0M-eYU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vgu-0Q-ZMS" firstAttribute="top" secondItem="Faf-CU-mV5" secondAttribute="bottom" constant="-65" id="3Le-fa-1lL"/>
+                            <constraint firstItem="Faf-CU-mV5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DqB-7O-EBe"/>
+                            <constraint firstItem="Faf-CU-mV5" firstAttribute="leading" secondItem="vgu-0Q-ZMS" secondAttribute="trailing" constant="70" id="Guf-sv-AQy"/>
+                            <constraint firstItem="Nqo-Ym-rh0" firstAttribute="leading" secondItem="Faf-CU-mV5" secondAttribute="trailing" constant="70" id="HFA-9Y-ebm"/>
+                            <constraint firstItem="Faf-CU-mV5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KHZ-RG-OT9"/>
+                            <constraint firstItem="Nqo-Ym-rh0" firstAttribute="height" secondItem="Faf-CU-mV5" secondAttribute="height" id="KSB-zX-sJa"/>
+                            <constraint firstItem="vgu-0Q-ZMS" firstAttribute="height" secondItem="Faf-CU-mV5" secondAttribute="height" id="Nto-KU-rdt"/>
+                            <constraint firstItem="Faf-CU-mV5" firstAttribute="top" secondItem="Nqo-Ym-rh0" secondAttribute="top" id="Uve-5C-YO9"/>
+                            <constraint firstItem="Nqo-Ym-rh0" firstAttribute="width" secondItem="Faf-CU-mV5" secondAttribute="width" id="Z5K-OK-8zF"/>
+                            <constraint firstItem="vgu-0Q-ZMS" firstAttribute="width" secondItem="Faf-CU-mV5" secondAttribute="width" id="os7-mE-OrX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="1DG-tg-H9B" kind="presentation" identifier="scisscorsSegue" id="eIX-jo-XHS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="QLY-qu-GHZ">
+            <objects>
+                <viewController storyboardIdentifier="resultController" id="1DG-tg-H9B" customClass="ResultViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b3w-La-BDe"/>
+                        <viewControllerLayoutGuide type="bottom" id="bJb-0e-DqN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tGD-Ff-14K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-0O-LbU">
+                                <rect key="frame" x="180" y="129" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="GuQ-HO-UFc"/>
+                                    <constraint firstAttribute="width" constant="240" id="gCQ-UI-dzg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZh-0z-BM6">
+                                <rect key="frame" x="279" y="313" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKy-XE-o1p">
+                                <rect key="frame" x="273" y="381" width="54" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismiss" destination="1DG-tg-H9B" eventType="touchUpInside" id="Oac-GN-okW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LKy-XE-o1p" firstAttribute="top" secondItem="LZh-0z-BM6" secondAttribute="bottom" constant="47" id="1VT-0z-OAD"/>
+                            <constraint firstItem="bJb-0e-DqN" firstAttribute="top" secondItem="LZh-0z-BM6" secondAttribute="bottom" constant="266" id="4FN-AH-a2A"/>
+                            <constraint firstItem="LKy-XE-o1p" firstAttribute="centerX" secondItem="LZh-0z-BM6" secondAttribute="centerX" id="CZz-VC-kfq"/>
+                            <constraint firstItem="bJb-0e-DqN" firstAttribute="top" secondItem="LKy-XE-o1p" secondAttribute="bottom" constant="189" id="EZd-Y9-ziB"/>
+                            <constraint firstItem="LZh-0z-BM6" firstAttribute="top" secondItem="hn2-0O-LbU" secondAttribute="bottom" constant="56" id="Iq1-tw-jqt"/>
+                            <constraint firstItem="LZh-0z-BM6" firstAttribute="centerX" secondItem="hn2-0O-LbU" secondAttribute="centerX" id="OzY-19-KTP"/>
+                            <constraint firstItem="hn2-0O-LbU" firstAttribute="top" secondItem="b3w-La-BDe" secondAttribute="bottom" constant="109" id="hDG-yw-TCv"/>
+                            <constraint firstItem="hn2-0O-LbU" firstAttribute="centerX" secondItem="tGD-Ff-14K" secondAttribute="centerX" id="lSE-xN-F6q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="hn2-0O-LbU" id="y48-TQ-X40"/>
+                        <outlet property="label" destination="LZh-0z-BM6" id="a7Q-ol-XEX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4w-3c-g3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="277"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eIX-jo-XHS"/>
+    </inferredMetricsTieBreakers>
 </document>
